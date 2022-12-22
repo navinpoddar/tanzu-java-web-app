@@ -22,3 +22,10 @@ k8s_custom_deploy(
 
 k8s_resource('tanzu-java-web-app', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'carto.run/workload-name': 'tanzu-java-web-app', 'app.kubernetes.io/component': 'run'}])
+
+# If the targeting Kubernetes cluster enabled by Tanzu Application Platform is not running on your local
+# machine, add a new line to the end of the Tiltfile template and enter:
+# allow_k8s_contexts('CONTEXT-NAME')
+# Where CONTEXT-NAME is the name of your current Kubernetes context
+
+allow_k8s_contexts('np-wc-1-tkg-aws')
